@@ -6,7 +6,7 @@ Info: https://github.com/empowerchain/empowerchain/releases/tag/v0.0.2</br>
 Execute the given commands on the block: ```XXXXXX```
 Stop node
 ```bash
-sudo systemctl stop haqqd
+sudo systemctl stop empowerd
 ```
 
 Update binary
