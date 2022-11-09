@@ -1,5 +1,37 @@
 ![empower](https://user-images.githubusercontent.com/104348282/192093493-67779857-653e-4018-8c78-49530690f7a0.png)
 
+# Update v0.0.2
+Info: https://github.com/empowerchain/empowerchain/releases/tag/v0.0.2</br>
+<b>Manual update</b></br>
+Execute the given commands on the block: ```XXXXXX```
+Stop node
+```bash
+sudo systemctl stop haqqd
+```
+
+Update binary
+```bash
+cd $HOME/empowerchain && git fetch && git checkout v0.0.2 && cd chain && make install
+```
+
+Check version
+```bash
+empowerd version --long -o json | jq -r .commit
+```
+There must be a commit: ```6e69cef55c3678c9588da805cf1fc840d15faa10```
+
+**Run the service file and see the logs of your node**
+```bash
+sudo systemctl daemon-reload && \
+sudo systemctl enable empowerd && \
+sudo systemctl restart empowerd && \
+sudo journalctl -u empowerd -f -o cat
+```
+
+Check consensus</br>
+```curl -s $(empowerd status --log_format=json | jq -r .NodeInfo.other.rpc_address | sed s/tcp/http/)/consensus_state  | jq '.result.round_state.height_vote_set[0].prevotes_bit_array'```
+
+
 # IMPORTANT!
 
 We are not accepting gentx PRs at the moment, so there is no need to submit those.
