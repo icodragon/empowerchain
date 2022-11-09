@@ -2,7 +2,7 @@
 
 # Update v0.0.2
 Info: https://github.com/empowerchain/empowerchain/releases/tag/v0.0.2</br>
-<b>Manual update</b></br><
+<b>Manual update</b></br>
 Execute the given commands on the block: ```XXXXXX```</br>
 Stop node
 ```bash
